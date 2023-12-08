@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de empleados</title>
+    <link rel="stylesheet" type="text/css" href="estilos/estiloAlertas.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7ecd6;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 40px;
+            color: #F3C734;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #F3C734;
+            color: black;
+            border:white;
+        }
+
+        .container {
+            margin: 50px auto;
+        }
+
+        .card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px; /* Ajusta el padding según tus preferencias para reducir el tamaño */
+            margin: 20px auto; /* Ajusta el margen para centrar horizontalmente */
+            width: 70%; /* Ajusta el ancho máximo según tus preferencias */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            margin-right: 15px;
+            text-align: center; /* Alinea el texto al centro */
+        }
+
+        label {
+            display: block;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 70%; /* Haz que el ancho del input sea 100% para que se expanda dentro de la caja */
+            padding: 8px;
+            border: 1px solid #F3C734;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 10px 0; /* Añade un pequeño margen para separar los inputs */
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn-secondary {
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #333;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #F3C734;
+            color: black;
+        }
+
+        .mt-3{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div th:replace="@{/componentes/header.html}"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 card">
+                <h2 class="text-center">Registro de Empleados</h2>
+                <div class="custom-alert">
+                    <div th:if="${error}" class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Error:</strong> <span th:text="${error}"></span>
+                    </div>
+                    <div th:if="${exito}" class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Éxito:</strong> <span th:text="${exito}"></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/empleados}" th:object="${empleado}" method="post">
+                        <div class="form-group">
+                            <label> Dni: </label>
+                            <input type="text" name="dni" th:field="*{dni}" required>
+                        </div>
+                        <div class="form-group">
+                            <label> Nombre: </label>
+                            <input type="text" name="nombre" th:field="*{nombre}" required>
+                        </div>
+                        <div class="form-group">
+                            <label> Sexo (F/M): </label>
+                            <input type="text" name="sexo" th:field="*{sexo}" pattern="[MmFf]{1}" required>
+                        </div>
+                        <div class="form-group">
+                            <label> Categoría: </label>
+                            <input type="number" name="categoria" th:field="*{categoria}" required min="1" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label> Años: </label>
+                            <input type="number" name="anyos" th:field="*{anyosTrabajados}" required min="0">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-success">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <a href="/principal" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="@{/componentes/footer.html}"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                var alertas = document.querySelectorAll('.custom-alert');
+                alertas.forEach(function (alerta) {
+                    alerta.style.display = 'none';
+                });
+            }, 4000);
+        });
+    </script>
+</body>
+
+</html>
+

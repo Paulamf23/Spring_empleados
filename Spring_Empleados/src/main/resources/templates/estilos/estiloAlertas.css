@@ -1,0 +1,21 @@
+
+		.custom-alert {
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			z-index: 1000;
+			width: 300px;
+			animation: fadeOut 5s forwards;
+		}
+
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+				display: none;
+			}
+		}
+	

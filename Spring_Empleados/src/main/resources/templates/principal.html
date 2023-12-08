@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		/* GENERAL */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f7ecd6;
+			text-align: center;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: 40px;
+			color: #F3C734;
+		}
+
+		/* Menú en content-defecto */
+		.content-defecto .menu  {
+			width: 90%;
+		}
+		.content-defecto .menu ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.content-defecto .menu li {
+			display: inline-block;
+			margin: 0 10px; /* Espacio entre elementos del menú */
+		}
+
+		.content-defecto .menu a {
+			text-decoration: none;
+			color: #F3C734; /* Color del texto del menú */
+			font-weight: bold;
+			-webkit-text-stroke-width: 0.2px;
+			-webkit-text-stroke-color: black;
+			display: block; /* Convertir el enlace en un bloque para aplicar caja */
+			background-color: transparent;
+			border: 2px solid #F3C734; /* Borde amarillo */
+			border-radius: 10px; /* Borde redondeado */
+			padding: 5px; /* Espaciado dentro de la caja */
+			margin: 10px 0; /* Espaciado entre enlaces */
+		}
+
+		.content-defecto .menu a:hover {
+			color: black; /* Color del texto al pasar el cursor */
+			background-color: #F3C734; /* Color de fondo al pasar el cursor */
+		}
+
+		/* autenticado */
+		.menu {
+			text-align: center;
+			background-color: #333;
+			padding: 15px;
+			border-radius: 10px;
+			margin: 0 auto;
+		}
+
+		.menu ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.menu li {
+			display: inline-block;
+			margin: 0;
+		}
+
+		.menu a, .menu a:visited {
+			text-decoration: none;
+			color: #fff;
+		}
+
+		/* CONTENIDO */
+		.content-defecto{
+			text-align: center;
+			margin: 50px auto;
+			padding: 20px;
+			background-color: #333;
+			color: #fff;
+			border-radius: 10px;
+			max-width: 600px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div th:replace="@{/componentes/header.html}"></div>
+	<div th:replace="@{/componentes/footer.html}"></div>
+	<main class="content-defecto">
+		<h1 class="heading">MENU DE OPCIONES</h1>
+		<div class="menu">
+			<ul>
+				<li><a href="/empleados/listar">Empleados</a></li>
+				<li><a href="/buscar/salarios">Sueldos</a></li>
+				<li><a href="/empleados/crear">Registrar empleado</a></li>
+			</ul>
+		</div>
+		<div th:if="${exito}" class="alert alert-success" role="alert">
+			<strong>Éxito:</strong> ${exito}
+		</div>
+	</main>
+</body>
+
+</html>

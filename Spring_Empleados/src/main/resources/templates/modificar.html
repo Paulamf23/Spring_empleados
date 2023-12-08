@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar Empleados</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f7ecd6;
+			text-align: center;
+		}
+
+		h2 {
+			margin: 0;
+			font-size: 40px;
+			color: #F3C734;
+		}
+
+		.btn {
+			text-decoration: none;
+			padding: 10px 20px;
+			border: 2px solid #fff;
+			border-radius: 5px;
+			background-color: transparent;
+			color: white;
+			transition: background-color 0.3s, color 0.3s;
+		}
+
+		.btn:hover {
+			background-color: #F3C734;
+			color: black;
+		}
+
+		.container {
+			margin: 50px auto;
+		}
+
+		.card {
+			background-color: #333;
+			border-radius: 10px;
+			padding: 20px; /* Ajusta el padding según tus preferencias para reducir el tamaño */
+			margin: 20px auto; /* Ajusta el margen para centrar horizontalmente */
+			width: 70%; /* Ajusta el ancho máximo según tus preferencias */
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+			margin-right: 15px;
+			text-align: center; /* Alinea el texto al centro */
+		}
+
+		label {
+			display: block;
+			color: #fff;
+			margin-bottom: 5px;
+		}
+
+		input {
+			width: 70%; /* Haz que el ancho del input sea 100% para que se expanda dentro de la caja */
+			padding: 8px;
+			border: 1px solid #F3C734;
+			border-radius: 5px;
+			font-size: 14px;
+			margin: 10px 0; /* Añade un pequeño margen para separar los inputs */
+		}
+
+		.box-footer {
+			text-align: center;
+			background-color: transparent;
+			color: white;
+		}
+
+		.boton-atras {
+			text-decoration: none;
+			padding: 10px 20px;
+			border: 2px solid #fff;
+			border-radius: 5px;
+			color: #fff;
+			background-color: #333;
+			transition: background-color 0.3s, color 0.3s;
+			display: inline-block;
+			margin-top: 20px;
+		}
+
+		.boton-atras:hover {
+			background-color: #F3C734;
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+<div th:replace="@{/componentes/header.html}"></div>
+	<div th:replace="@{/componentes/footer.html}"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card ">
+				<h2 class="text-center">Modificar Empleado</h2>
+				<div class="card-body">
+					<form th:action="@{/empleados/{dni}(dni=${empleado.dni})}" th:object="${empleado}" method="post">
+						<div class="form-group">
+							<label> Nombre: </label>
+							<input type="text" name="nombre" th:field="*{nombre}" required>
+						</div>
+						<div class="form-group">
+							<label> Sexo (F/M): </label>
+							<input type="text" name="sexo" th:field="*{sexo}" pattern="[MmFf]{1}" required maxlength="1">
+						</div>
+						<div class="form-group">
+							<label> Categoría: </label>
+							<input type="number" name="categoria" th:field="*{categoria}" required min="1" max="10">
+						</div>
+						<div class="form-group">
+							<label> Años: </label>
+							<input type="number" name="anyos" th:field="*{anyosTrabajados}" required min="0">
+						</div>
+						<div class="box-footer">
+							<button class="btn btn-success">Editar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<a href="/principal" class="boton-atras">Volver</a>
+		</div>
+	</div>
+</body>
+
+</html>

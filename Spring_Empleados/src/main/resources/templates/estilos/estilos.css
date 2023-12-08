@@ -1,0 +1,208 @@
+/* GENERAL */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7ecd6;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 40px;
+    color: #F3C734;
+}
+
+/* Menú en content-defecto */
+.content-defecto .menu  {
+    width: 90%;
+}
+.content-defecto .menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-defecto .menu li {
+    display: inline-block;
+    margin: 0 10px; /* Espacio entre elementos del menú */
+}
+
+.content-defecto .menu a {
+    text-decoration: none;
+    color: #F3C734; /* Color del texto del menú */
+    font-weight: bold;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: black;
+    display: block; /* Convertir el enlace en un bloque para aplicar caja */
+    background-color: transparent;
+    border: 2px solid #F3C734; /* Borde amarillo */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 5px; /* Espaciado dentro de la caja */
+    margin: 10px 0; /* Espaciado entre enlaces */
+}
+
+.content-defecto .menu a:hover {
+    color: black; /* Color del texto al pasar el cursor */
+    background-color: #F3C734; /* Color de fondo al pasar el cursor */
+}
+
+
+/* autenticado */
+.menu {
+    text-align: center;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0;
+}
+
+.menu a, .menu a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* CONTENIDO */
+.content-defecto, .error {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.heading {
+    font-size: 2em;
+}
+
+.text, .error p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.btn, .btn-log , .error a.btn{
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover, .btn-log:hover, .error a.btn:hover {
+    background-color: #F3C734;
+    color: black;
+}
+
+btn-mod {
+    background-color: #F3C734;
+    color: black;
+}
+
+btn-mod{
+    margin-top: 90%;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* VISTAS */
+.menu-container, .menu-container-form {
+    margin: 100px auto;
+    width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 80%;
+    border: 2px solid #F3C734;
+    margin: 20px auto;
+}
+
+#table {
+    width: 100%;
+}
+
+tr {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #F3C734;
+    border-radius: 5px;
+    width: 40%;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.principal {
+    font-weight: bold;
+}
+
+/* LOGIN */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.btn-log {
+    background-color: #333;
+    color: white;
+    border: white;
+}
+
+/*error*/
+.error h2 {
+    font-size: 2em;
+}
+
+
+
